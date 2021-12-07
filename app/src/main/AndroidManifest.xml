@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MWSTFinalProject">
         <activity
+            android:name=".SpendingHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SpendingCategoriesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

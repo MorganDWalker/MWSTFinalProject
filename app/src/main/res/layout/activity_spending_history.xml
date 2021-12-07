@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SpendingHistoryActivity">
+
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="371dp"
+        android:layout_height="318dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--1ST ROW-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <Button
+                android:id="@+id/JanButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/FebButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/MarchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <!--2ND ROW-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/AprilButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/MayButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/JuneButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <!--3RD ROW-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/JulyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/AugButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/SepButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <!--4TH ROW-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="151dp">
+
+            <Button
+                android:id="@+id/DecButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="307dp"
+                tools:layout_editor_absoluteY="221dp" />
+
+            <Button
+                android:id="@+id/NovButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="331dp" />
+
+            <Button
+                android:id="@+id/OctButton"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_span="1"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="21dp"
+                tools:layout_editor_absoluteY="308dp" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="58dp"
+        android:fontFamily="sans-serif"
+        android:text="Spending History"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.384" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
