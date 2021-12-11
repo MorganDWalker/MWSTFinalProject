@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -112,4 +113,62 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return listCategories;
     }
+
+    public HashMap<String, List<String>> GetTodayCategories(String day){
+        HashMap<String, List<String>> listCategories = new HashMap<String, List<String>>();
+        List<String> categories = new ArrayList<String>();
+        List<Float> totals = new ArrayList<Float>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String queryString = "SELECT " + COLUMN_CATEGORY + ", SUM(" + COLUMN_AMOUNT + ") FROM " + PURCHASES +
+                " WHERE " + "date(" + COLUMN_DATE + ") = date('" + day + "') GROUP BY " + COLUMN_CATEGORY;
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                categories.add(cursor.getString(0));
+                totals.add(cursor.getFloat(1));
+
+            } while (cursor.moveToNext());
+        }
+        for(int i=0; i<categories.size();i++){
+            List<String> purchases = new ArrayList<String>();
+            String secondQuery = "SELECT " + COLUMN_PURCHASE_NAME + ", " + COLUMN_AMOUNT + " FROM " + PURCHASES +
+                    " WHERE " + "date(" + COLUMN_DATE + ") = date('" + day + "') AND " + COLUMN_CATEGORY + " = '" + categories.get(i) + "'";
+
+            Cursor secondCursor = db.rawQuery(secondQuery, null);
+
+            if (secondCursor.moveToFirst()) {
+                do {
+                    purchases.add(secondCursor.getString(0) + ": " + secondCursor.getFloat(1));
+                } while (secondCursor.moveToNext());
+            }
+
+            listCategories.put(categories.get(i) + ": " + totals.get(i),purchases);
+
+        }
+
+        return listCategories;
+    }
+
+    public void InsertDummyData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // ContentValues stores the Key Value pair for column name and its data
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_PURCHASE_NAME,"Wendy's");
+        cv.put(COLUMN_CATEGORY,"Food");
+        cv.put(COLUMN_DATE, LocalDate.now().toString());
+        cv.put(COLUMN_AMOUNT,20.50);
+
+        // insert content values to our Student table.
+        db.insert(PURCHASES, null, cv);
+
+        // close the Database connection
+        db.close();
+    }
+
 }
