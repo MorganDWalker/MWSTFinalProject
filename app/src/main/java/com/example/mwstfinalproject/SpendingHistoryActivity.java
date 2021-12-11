@@ -40,7 +40,6 @@ public class SpendingHistoryActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
-        //Button tempButton = findViewById(view.getId());
         Bundle bundle = new Bundle();
         Intent intent;
         switch (view.getId()){
@@ -117,8 +116,6 @@ public class SpendingHistoryActivity extends AppCompatActivity implements View.O
                 startActivity(intent);
                 break;
         }
-
-        //Toast.makeText(this, "Button Clicked: " + view.getId(), Toast.LENGTH_SHORT).show();
 
     }
 }
