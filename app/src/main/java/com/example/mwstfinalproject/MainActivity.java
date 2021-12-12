@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        date.setText(LocalDate.now().toString());
+        date.setText(LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
         total.setText("$" + dataBaseHelper.getTodaystTotal() + "\n Spent So Far");
 
     }
