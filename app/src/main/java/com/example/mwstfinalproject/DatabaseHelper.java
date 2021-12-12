@@ -187,9 +187,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String queryString = "DELETE FROM " + PURCHASES;
-
-        db.rawQuery(queryString, null);
+        db.delete(PURCHASES, null, null);
 
         db.close();
     }
