@@ -78,7 +78,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent settings = new Intent(this, SettingsActivity.class);
                 startActivity(settings);
                 break;
+            case R.id.history:
+                Intent history = new Intent(this, SpendingHistoryActivity.class);
+                startActivity(history);
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 }

@@ -45,6 +45,21 @@
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/txtPurchaseName"
+        android:layout_width="match_parent"
+        android:hint="Enter Purchase Name"
+        android:textColorHint="#6f7378"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
         android:id="@+id/txtExpenseCost"
         android:layout_width="match_parent"
         android:hint="Enter Cost"
@@ -73,7 +88,11 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
 
     <Button
         android:id="@+id/btnAddExpense"

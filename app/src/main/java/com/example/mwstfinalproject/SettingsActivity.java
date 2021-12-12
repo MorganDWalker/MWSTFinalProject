@@ -28,7 +28,8 @@ public class SettingsActivity extends AppCompatActivity {
         btnClearData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                //TODO - Add drop table action
+                DatabaseHelper helper = new DatabaseHelper(SettingsActivity.this);
+                helper.clearTable();
                 startActivity(new Intent(SettingsActivity.this, MainActivity.class));
             }
         });

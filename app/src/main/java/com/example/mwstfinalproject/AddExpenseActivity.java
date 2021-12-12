@@ -24,6 +24,7 @@ public class AddExpenseActivity extends AppCompatActivity {
     EditText expenseCategory;
     EditText expenseCost;
     EditText expenseDate;
+    EditText expenseName;
     Button btnAddExpense;
 
     @Override
@@ -36,6 +37,7 @@ public class AddExpenseActivity extends AppCompatActivity {
         DatabaseHelper dataBaseHelper = new DatabaseHelper(AddExpenseActivity.this);
 
         expenseCategory = findViewById(R.id.txtExpenseCategory);
+        expenseName = findViewById(R.id.txtPurchaseName);
         expenseCost = findViewById(R.id.txtExpenseCost);
         expenseDate = findViewById(R.id.txtExpenseDate);
         expenseDate.setInputType(InputType.TYPE_NULL);
@@ -62,7 +64,8 @@ public class AddExpenseActivity extends AppCompatActivity {
         btnAddExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-
+                DatabaseHelper helper = new DatabaseHelper(AddExpenseActivity.this);
+                helper.InsertPurchase(expenseCategory.getText().toString(),expenseName.getText().toString(),expenseDate.getText().toString(),Float.parseFloat(expenseCost.getText().toString()));
                 startActivity(new Intent(AddExpenseActivity.this, MainActivity.class));
             }
         });

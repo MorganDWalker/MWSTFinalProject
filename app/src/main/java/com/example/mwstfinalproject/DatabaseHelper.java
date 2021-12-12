@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String queryString = "SELECT " + COLUMN_CATEGORY + ", SUM(" + COLUMN_AMOUNT + ") FROM " + PURCHASES +
-                " WHERE " + "strftime('%m', " + COLUMN_DATE + ") = " + month + " GROUP BY " + COLUMN_CATEGORY;
+                " WHERE " + "strftime('%m', " + COLUMN_DATE + ") = '" + month + "' GROUP BY " + COLUMN_CATEGORY;
 
         Cursor cursor = db.rawQuery(queryString, null);
 
@@ -107,8 +107,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             if (secondCursor.moveToFirst()) {
                 do {
-                    purchases.add(cursor.getString(0) + ": " + cursor.getFloat(1));
-                } while (cursor.moveToNext());
+                    purchases.add(secondCursor.getString(0) + ": " + secondCursor.getFloat(1));
+                } while (secondCursor.moveToNext());
             }
 
             listCategories.put(categories.get(i) + ": " + totals.get(i),purchases);
@@ -160,6 +160,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return listCategories;
     }
+
+
+    /**
+     * Inserting a purchase into the database
+     */
+    public void InsertPurchase(String category, String name, String date, float amount){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // ContentValues stores the Key Value pair for column name and its data
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_PURCHASE_NAME,name);
+        cv.put(COLUMN_CATEGORY,category);
+        cv.put(COLUMN_DATE, date);
+        cv.put(COLUMN_AMOUNT,amount);
+
+        // insert content values to our Student table.
+        db.insert(PURCHASES, null, cv);
+
+        // close the Database connection
+        db.close();
+    }
+
+    public void clearTable()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String queryString = "DELETE FROM " + PURCHASES;
+
+        db.rawQuery(queryString, null);
+
+        db.close();
+    }
+
 
     /**
      * A test method for inserting some fake data
