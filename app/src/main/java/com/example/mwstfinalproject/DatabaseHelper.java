@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, "purchases.db", null, 2);
     }
 
-    // creating a database by running a sqlite query
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -51,8 +51,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    /*
-        Called when app is first launched will get the Sum of today's spending
+    /**
+     * @return The Sum of all purchases made today
      */
     public float getTodaystTotal() {
 
@@ -75,6 +75,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return total;
     }
 
+    /**
+     * @param month the month for the query
+     * @return a list of categories based on what was bought that month
+     */
     public HashMap<String, List<String>> GetMonthlyCategories(String month){
         HashMap<String, List<String>> listCategories = new HashMap<String, List<String>>();
         List<String> categories = new ArrayList<String>();
@@ -114,6 +118,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listCategories;
     }
 
+    /**
+     * @param day Today's date
+     * @return A list of categories based on today's purchases
+     */
     public HashMap<String, List<String>> GetTodayCategories(String day){
         HashMap<String, List<String>> listCategories = new HashMap<String, List<String>>();
         List<String> categories = new ArrayList<String>();
@@ -153,6 +161,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listCategories;
     }
 
+    /**
+     * A test method for inserting some fake data
+     */
     public void InsertDummyData(){
         SQLiteDatabase db = this.getWritableDatabase();
 
