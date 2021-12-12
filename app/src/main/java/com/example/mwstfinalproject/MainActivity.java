@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         date.setText(LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
-        total.setText("$" + dataBaseHelper.getTodaystTotal() + "\n Spent So Far");
+        total.setText("$" + String.format("%.2f",dataBaseHelper.getTodaystTotal()) + "\n Spent So Far");
 
     }
 

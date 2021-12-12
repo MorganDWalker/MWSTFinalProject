@@ -6,10 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".SpendingCategoriesActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
+
+
     <ExpandableListView
         android:id="@+id/categoryListing"
-        android:layout_width="409dp"
-        android:layout_height="632dp"
+        android:layout_width="414dp"
+        android:layout_height="572dp"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="0.5dp"
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
@@ -21,6 +35,7 @@
         android:id="@+id/categoriesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="Spending Categories"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp"

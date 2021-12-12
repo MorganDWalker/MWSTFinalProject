@@ -1,5 +1,6 @@
 package com.example.mwstfinalproject;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,9 @@ public class SpendingHistoryActivity extends AppCompatActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spending_history);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("  Spending Tracker | Spending History ");
 
         buttonArray[0][0] = findViewById(R.id.JanButton);
         buttonArray[0][1] = findViewById(R.id.FebButton);

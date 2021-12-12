@@ -1,5 +1,6 @@
 package com.example.mwstfinalproject;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -28,6 +29,8 @@ public class SpendingCategoriesActivity extends AppCompatActivity {
         month = bundle.getString("month");
         today = bundle.getString("date");
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("  Spending Tracker | Spending Categories ");
         DatabaseHelper databaseHelper = new DatabaseHelper(SpendingCategoriesActivity.this);
 
         listView = (ExpandableListView) findViewById(R.id.categoryListing);
