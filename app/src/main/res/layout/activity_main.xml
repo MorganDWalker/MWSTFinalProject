@@ -22,8 +22,6 @@
             android:background="?attr/colorPrimary">
         </androidx.appcompat.widget.Toolbar>
 
-        <!-- Layout for content is here. This can be a RelativeLayout  -->
-
     </LinearLayout>
 
     <TextView
@@ -73,7 +71,7 @@
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/detailsButton"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="SpeakableTextPresentCheck" />
 
